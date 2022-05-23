@@ -12,3 +12,27 @@ class Fraction:
     @property
     def get_den(self):
         return self.__denominator
+
+    def __sub__(self, other):
+        new_num = self.get_num * other.get_den - self.get_den * other.get_num
+        new_den = self.get_den * other.get_den
+
+        return Fraction(new_num, new_den)
+
+    def __add__(self, other):
+        new_num = self.get_num * other.get_den + self.get_den * other.get_num
+        new_den = self.get_den * other.get_den
+
+        return Fraction(new_num, new_den)
+
+    def __mul__(self, other):
+        new_num = self.get_num * other.get_num
+        new_den = self.get_den * other.get_den
+
+        return Fraction(new_num, new_den)
+
+    def __truediv__(self, other):
+        new_num = self.get_num * other.get_den
+        new_den = self.get_den * other.get_num
+
+        return Fraction(new_num, new_den)
