@@ -61,3 +61,6 @@ class Fraction(MixinFraction):
     def str_fraction(cls, string: str) -> isinstance:
         num, den = [int(_.strip()) for _ in string.split('/')]
         return cls(num, den)
+
+    def __str__(self) :
+        return f'{self.get_num}/{self.get_den}'
