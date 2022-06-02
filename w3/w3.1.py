@@ -40,23 +40,24 @@ class Fraction(MixinFraction):
     def __sub__(self, other):
         new_num = self.get_num * other.get_den - self.get_den * other.get_num
         new_den = self.get_den * other.get_den
-
         return Fraction(new_num, new_den)
 
     def __add__(self, other):
         new_num = self.get_num * other.get_den + self.get_den * other.get_num
         new_den = self.get_den * other.get_den
-
         return Fraction(new_num, new_den)
 
     def __mul__(self, other):
         new_num = self.get_num * other.get_num
         new_den = self.get_den * other.get_den
-
         return Fraction(new_num, new_den)
 
     def __truediv__(self, other):
         new_num = self.get_num * other.get_den
         new_den = self.get_den * other.get_num
-
         return Fraction(new_num, new_den)
+
+    @classmethod
+    def str_fraction(cls, string: str) -> isinstance:
+        num, den = [int(_.strip()) for _ in string.split('/')]
+        return cls(num, den)
