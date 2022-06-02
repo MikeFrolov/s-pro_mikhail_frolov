@@ -1,6 +1,30 @@
-class Fraction:
-    __slots__ = ('__numerator', '__denominator')
+class MixinFraction:
+    @staticmethod
+    def sub(fraction_1, fraction_2):
+        num = fraction_1.get_num * fraction_2.get_den - fraction_1.get_den * fraction_2.get_num
+        den = fraction_1.get_den * fraction_2.get_den
+        return Fraction(num, den)
 
+    @staticmethod
+    def add(fraction_1, fraction_2):
+        num = fraction_1.get_num * fraction_2.get_den + fraction_1.get_den * fraction_2.get_num
+        den = fraction_1.get_den * fraction_2.get_den
+        return Fraction(num, den)
+
+    @staticmethod
+    def mul(fraction_1, fraction_2):
+        num = fraction_1.get_num * fraction_2.get_num
+        den = fraction_1.get_den * fraction_2.get_den
+        return Fraction(num, den)
+
+    @staticmethod
+    def truediv(fraction_1, fraction_2):
+        num = fraction_1.get_num * fraction_2.get_den
+        den = fraction_1.get_den * fraction_2.get_num
+        return Fraction(num, den)
+
+
+class Fraction(MixinFraction):
     def __init__(self, num: int, den: int):
         self.__numerator = num
         self.__denominator = den
