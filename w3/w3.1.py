@@ -1,27 +1,19 @@
 class MixinFraction:
     @staticmethod
     def sub(fraction_1, fraction_2):
-        num = fraction_1.get_num * fraction_2.get_den - fraction_1.get_den * fraction_2.get_num
-        den = fraction_1.get_den * fraction_2.get_den
-        return Fraction(num, den)
+        return fraction_1 - fraction_2
 
     @staticmethod
     def add(fraction_1, fraction_2):
-        num = fraction_1.get_num * fraction_2.get_den + fraction_1.get_den * fraction_2.get_num
-        den = fraction_1.get_den * fraction_2.get_den
-        return Fraction(num, den)
+        return fraction_1 + fraction_2
 
     @staticmethod
     def mul(fraction_1, fraction_2):
-        num = fraction_1.get_num * fraction_2.get_num
-        den = fraction_1.get_den * fraction_2.get_den
-        return Fraction(num, den)
+        return fraction_1 * fraction_2
 
     @staticmethod
     def truediv(fraction_1, fraction_2):
-        num = fraction_1.get_num * fraction_2.get_den
-        den = fraction_1.get_den * fraction_2.get_num
-        return Fraction(num, den)
+        return fraction_1 / fraction_2
 
 
 class Fraction(MixinFraction):
@@ -62,7 +54,7 @@ class Fraction(MixinFraction):
         num, den = [int(_.strip()) for _ in string.split('/')]
         return cls(num, den)
 
-    def __str__(self) :
+    def __str__(self):
         return f'{self.get_num}/{self.get_den}'
 
 
@@ -78,7 +70,7 @@ if __name__ == "__main__":
     print(f"Truediv: {fr1.__truediv__(fr2)}\n")
 
     print("Mixin class methods:")
-    print(f"Sub: {fr1 - fr2}")
-    print(f"Add: {fr1 + fr2}")
-    print(f"Mul: {fr1 * fr2}")
-    print(f"Truediv: {fr1 / fr2}")
+    print(f"Sub: {Fraction.sub(fr1, fr2)}")
+    print(f"Add: {Fraction.add(fr1, fr2)}")
+    print(f"Mul: {Fraction.mul(fr1, fr2)}")
+    print(f"Truediv: {Fraction.truediv(fr1, fr2)}")
