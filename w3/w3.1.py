@@ -64,3 +64,21 @@ class Fraction(MixinFraction):
 
     def __str__(self) :
         return f'{self.get_num}/{self.get_den}'
+
+
+if __name__ == "__main__":
+    #  Create class instances
+    fr1 = Fraction(4, 3)
+    fr2 = Fraction.str_fraction("1/7")
+
+    print("Base class methods:")
+    print(f"Sub: {fr1.__sub__(fr2)}")
+    print(f"Add: {fr1.__add__(fr2)}")
+    print(f"Mul: {fr1.__mul__(fr2)}")
+    print(f"Truediv: {fr1.__truediv__(fr2)}\n")
+
+    print("Mixin class methods:")
+    print(f"Sub: {fr1 - fr2}")
+    print(f"Add: {fr1 + fr2}")
+    print(f"Mul: {fr1 * fr2}")
+    print(f"Truediv: {fr1 / fr2}")
