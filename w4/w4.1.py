@@ -23,7 +23,3 @@ def calc(expression: str):
         raise FormulaError("The second element of string must be: '+' or '-' or '*' or '/'")
 
     return operators[values[1]]
-
-
-if __name__ == "__main__":
-    print(calc(input("Enter the expression: ")))
