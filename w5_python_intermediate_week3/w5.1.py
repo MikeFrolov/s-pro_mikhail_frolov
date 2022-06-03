@@ -11,3 +11,7 @@ def file_line_editor():
                 count += 1
     except FileNotFoundError:
         print("Error: File with this name does not exist!")
+
+
+if __name__ == "__main__":
+    file_line_editor()
